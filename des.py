@@ -94,6 +94,49 @@ if __name__ == "__main__":
         c+=1
     pc1_key = ''.join(pc1_key)
     printBin(pc1_key)
+    print(len(pc1_key))
+    C = pc1_key[:28]
+    D = pc1_key[28:]
+    print(f"C: {C}")
+    print(f"D: {D}")
+
+    lcs = lambda b, n: bin(b<<n|b>>(64-n))[2:].zfill(28)
+    C = lcs(int(C,2),1)
+    D = lcs(int(D,2),1)
+
+    print(C+D)
+    r = C+D
+    if r == "11010001111110001000100101000010001000100111110100101100":
+        print("yay2")
         
-        
-        
+    PC2 = [
+        [14, 17, 11, 24, 1, 5],
+        [3, 28, 15, 6, 21, 10],
+        [23, 19, 12, 4, 26, 8],
+        [16, 7, 27, 20, 13, 2],
+        [41, 52, 31, 37, 47, 55],
+        [30, 40, 51, 45, 33, 48],
+        [44, 49, 39, 56, 34, 53],
+        [46, 42, 50, 36, 29, 32]
+    ]
+    pc2 = []
+    for i in PC2:
+        for j in i:
+            pc2.append(j-1)
+    print(pc2)
+    print(len(pc2))
+    pc2_key = [0]*48
+    c=0
+
+    for i in pc2:
+        pc2_key[c] = r[i]
+        c+=1
+    
+    pc2_key = ''.join(pc2_key)
+    print(pc2_key)
+
+    if pc2_key == "011110000011001111000011001000001101101001110000":
+        print("k1 yay")
+    
+    K1 = pc2_key
+    print(hex(int(K1,2)))
