@@ -140,3 +140,27 @@ if __name__ == "__main__":
     
     K1 = pc2_key
     print(hex(int(K1,2)))
+
+
+
+    # ====== part c ============
+    print("==================")
+    print()
+    print(len(R_0))
+
+    EXP_Table = "32 1 2 3 4 5 4 5 6 7 8 9 8 9 10 11 12 13 12 13 14 15 16 17 16 17 18 19 20 21 20 21 22 23 24 25 24 25 26 27 28 29 28 29 30 31 32 1".split(" ")
+    EXP = list(map(int,EXP_Table))
+    EXP = [i-1 for i in EXP]
+    print(EXP)
+
+    E_R0 = [0]*48
+    for i,v in enumerate(EXP):
+        E_R0[i] = R_0[v]
+    E_R0 = ''.join(E_R0)
+    print(E_R0)
+
+    if "100111111001011110100000000111111000000001011110" == E_R0:
+        print("yay3")
+    print(hex(int(E_R0,2)))
+
+    # ================ part d ====================
