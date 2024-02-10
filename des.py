@@ -1,4 +1,11 @@
 from sys import argv
+"""
+des.py
+1 Round of DES implimentation in python3
+
+@author James Shima
+references: https://www.geeksforgeeks.org/data-encryption-standard-des-set-1/, https://www.geeksforgeeks.org/rotate-bits-of-an-integer/
+"""
 
 class Des():
     def __init__(self, plaintext, key):
@@ -185,10 +192,12 @@ class Des():
         for i in range(0,48,6):
             A_groups.append(self.A[i:i+6])
         
+        print(A_groups)
         B = ""
         for i in range(8): # for all 8 S boxes
             B+=self.__sbox_sub(A_groups[i],i)
-        
+            print(self.__sbox_sub(A_groups[i],i) + " ", end='')
+        print()
         return B
 
     def __part_g(self):
